@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:haohao="http://www.ace.com/haohao"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.ace.com/haohao
+       http://www.ace.com/haohao/haohao-annotation.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <haohao:annotation-driven></haohao:annotation-driven>
+
+    <context:property-placeholder location="test.properties"/>
+    <context:component-scan base-package="com.ace"/>
+    <bean id="userDao" class="com.ace.dao.impl.UserDaoImpl">
+        <!--        <property name="userService" ref="userService2"></property>-->
+    </bean>
+    <!--    <bean id="userService2" class="com.ace.service.impl.UserServiceImpl">-->
+    <!--        <property name="userDao" ref="userDao"></property>-->
+    <!--    </bean>-->
+    <bean id="testService" class="com.ace.service.impl.TestServiceImpl"></bean>
+    <bean class="com.ace.processor.MyBeanFactoryProcessor"></bean>
+    <bean class="com.ace.processor.MyBeanDefinitionRegistryPostProcessor"></bean>
+    <bean class="com.ace.processor.MyBeanPostProcessor"></bean>
+</beans>
